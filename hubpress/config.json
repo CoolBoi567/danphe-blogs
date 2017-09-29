@@ -3,16 +3,16 @@
     "username": "nepal-blockchain",
     "repositoryName": "danphe-blogs",
     "branch": "gh-pages",
-    "cname": "danphe.network"
+    "cname": "danphe.net"
   },
   "theme": {
     "name": "casper"
   },
   "urls": {
-    "site": "http://danphe.network",
+    "site": "http://danphe.net",
     "hubpress": "http://danphe.net",
-    "theme": "//danphe.network/themes/casper",
-    "images": "http://danphe.network/images"
+    "theme": "//danphe.net/themes/casper",
+    "images": "http://danphe.net/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
