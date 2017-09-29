@@ -5,6 +5,22 @@
     "branch": "gh-pages"
   },
   "theme": {
-    "name": "Casper"
+    "name": "casper"
+  },
+  "urls": {
+    "site": "https://nepal-blockchain.github.io/danphe-blogs",
+    "hubpress": "https://nepal-blockchain.github.io/danphe-blogs",
+    "theme": "//nepal-blockchain.github.io/danphe-blogs/themes/casper",
+    "images": "https://nepal-blockchain.github.io/danphe-blogs/images"
+  },
+  "initialisationConfigComponent": {
+    "name": "initialise-configuration",
+    "computed": {},
+    "methods": {},
+    "staticRenderFns": [
+      null,
+      null,
+      null
+    ]
   }
 }
