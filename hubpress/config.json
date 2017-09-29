@@ -9,10 +9,10 @@
     "name": "casper"
   },
   "urls": {
-    "site": "https://nepal-blockchain.github.io/danphe-blogs",
-    "hubpress": "https://nepal-blockchain.github.io/danphe-blogs",
-    "theme": "//nepal-blockchain.github.io/danphe-blogs/themes/casper",
-    "images": "https://nepal-blockchain.github.io/danphe-blogs/images"
+    "site": "http://danphe.network",
+    "hubpress": "http://danphe.net",
+    "theme": "//danphe.network/themes/casper",
+    "images": "http://danphe.network/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
