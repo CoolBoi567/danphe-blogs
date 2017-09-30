@@ -1,0 +1,73 @@
+= Your Blog title
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+:hp-image: /covers/cover.png
+:published_at: 2019-01-31
+:hp-tags: HubPress, Blog, Open_Source,
+:hp-alt-title: My English Title
+
+pragma solidity ^0.4.14;
+contract ClassRoom{
+    
+    address public classTeacher;
+    uint8 public totalStudents;
+    uint8 public nClass = 0; 
+    string public wClass = "Play Group";
+    
+    //map rollID[roll number] = student id
+    mapping(address => student) public identity;
+    
+    struct student{
+        uint8 rollNum;
+        bytes16 firstName;
+        bytes16 middleName;
+        bytes16 lastName;
+    }
+    
+    //map Roll[number] = student
+    mapping(uint8 => address) public rollID;
+    
+    //event for new student. First name, last name & student address are indexed 
+    event NewStudent(bytes16 indexed firstName, bytes16 middleName, bytes16 indexed lastName, address indexed ID);
+    
+    //init function
+    function ClassRoom(){
+        classTeacher = msg.sender;
+    }
+    function a() public returns (address){
+        return msg.sender;
+    }
+    
+    //access check modifier for class teacher
+    modifier onlyClassTeacher(){
+        assert(msg.sender == classTeacher);
+        _; //continue
+    }
+    //student id check & access modifier  
+    modifier chxStudent(address _id, bool _chx){
+        if(_chx)
+        assert(identity[msg.sender].rollNum != 0);
+        else
+        assert(identity[msg.sender].rollNum == 0);
+        _; //continue
+    }
+    //add student function used only by class teacher
+    function addStudent(
+        bytes16 _firstName, 
+        bytes16 _middleName,
+        bytes16 _lastName, 
+        address _id) //ethereum address of student
+        public onlyClassTeacher{ //throw if msg sender isn't class teacher
+            //; // throw if address is already regd
+            totalStudents++;
+            rollID[totalStudents] = _id;
+            identity[_id].firstName = _firstName;
+            identity[_id].middleName = _middleName;
+            identity[_id].lastName = _lastName;
+            NewStudent(_firstName, _middleName, _lastName, _id);
+    }
+    
+    function selfAttendance(){ 
+        assert(identity[msg.sender].rollNum != 0); // throw if msg sender isn't from this class
+        ///TODO :: use multi contract acces to record student's attendance
+    }
+}
