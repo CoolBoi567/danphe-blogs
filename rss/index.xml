@@ -1,1 +1,92 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Danphe Blockchain As a Service]]></title><description><![CDATA[Danphe Blockchain As a Service]]></description><link>http://danphe.net</link><generator>RSS for Node</generator><lastBuildDate>Fri, 29 Sep 2017 23:53:11 GMT</lastBuildDate><atom:link href="http://danphe.net/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Danphe Blockchain As a Service]]></title><description><![CDATA[Danphe Blockchain As a Service]]></description><link>http://danphe.net</link><generator>RSS for Node</generator><lastBuildDate>Sat, 30 Sep 2017 00:03:29 GMT</lastBuildDate><atom:link href="http://danphe.net/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Your Blog title]]></title><description><![CDATA[<div class="paragraph">
+<p>pragma solidity ^0.4.14;
+contract ClassRoom{</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>address public classTeacher;
+uint8 public totalStudents;
+uint8 public nClass = 0;
+string public wClass = "Play Group";</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>//map rollID[roll number] = student id
+mapping(address =&gt; student) public identity;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>struct student{
+    uint8 rollNum;
+    bytes16 firstName;
+    bytes16 middleName;
+    bytes16 lastName;
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>//map Roll[number] = student
+mapping(uint8 =&gt; address) public rollID;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>//event for new student. First name, last name &amp; student address are indexed
+event NewStudent(bytes16 indexed firstName, bytes16 middleName, bytes16 indexed lastName, address indexed ID);</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>//init function
+function ClassRoom(){
+    classTeacher = msg.sender;
+}
+function a() public returns (address){
+    return msg.sender;
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>//access check modifier for class teacher
+modifier onlyClassTeacher(){
+    assert(msg.sender == classTeacher);
+    _; //continue
+}
+//student id check &amp; access modifier
+modifier chxStudent(address _id, bool _chx){
+    if(_chx)
+    assert(identity[msg.sender].rollNum != 0);
+    else
+    assert(identity[msg.sender].rollNum == 0);
+    _; //continue
+}
+//add student function used only by class teacher
+function addStudent(
+    bytes16 _firstName,
+    bytes16 _middleName,
+    bytes16 _lastName,
+    address _id) //ethereum address of student
+    public onlyClassTeacher{ //throw if msg sender isn't class teacher
+        //; // throw if address is already regd
+        totalStudents++;
+        rollID[totalStudents] = _id;
+        identity[_id].firstName = _firstName;
+        identity[_id].middleName = _middleName;
+        identity[_id].lastName = _lastName;
+        NewStudent(_firstName, _middleName, _lastName, _id);
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    function selfAttendance(){
+        assert(identity[msg.sender].rollNum != 0); // throw if msg sender isn't from this class
+        ///TODO :: use multi contract acces to record student's attendance
+    }
+}</pre>
+</div>
+</div>]]></description><link>http://danphe.net/2019/01/31/My-English-Title.html</link><guid isPermaLink="true">http://danphe.net/2019/01/31/My-English-Title.html</guid><category><![CDATA[HubPress]]></category><category><![CDATA[Blog]]></category><category><![CDATA[Open_Source]]></category><pubDate>Thu, 31 Jan 2019 00:00:00 GMT</pubDate></item></channel></rss>
