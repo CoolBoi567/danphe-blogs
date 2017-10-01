@@ -11,7 +11,7 @@
   "urls": {
     "site": "http://danphe.net",
     "hubpress": "http://danphe.net",
-    "theme": "//danphe.net/themes/casper",
+    "theme": "//danphe.net/themes/ghostium",
     "images": "http://danphe.net/images"
   },
   "initialisationConfigComponent": {
