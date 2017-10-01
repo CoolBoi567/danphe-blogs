@@ -6,12 +6,12 @@
     "cname": "danphe.net"
   },
   "theme": {
-    "name": "saga"
+    "name": "uno-zen"
   },
   "urls": {
     "site": "http://danphe.net",
     "hubpress": "http://danphe.net",
-    "theme": "//danphe.net/themes/ghostium",
+    "theme": "//danphe.net/themes/saga",
     "images": "http://danphe.net/images"
   },
   "initialisationConfigComponent": {
